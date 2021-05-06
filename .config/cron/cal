@@ -1,0 +1,9 @@
+#!/bin/sh
+
+a=$(calcurse -a --days 7) && [ -z "$a" ] && exit
+
+while ! pgrep dunst >/dev/null; do
+	      sleep 2
+done
+
+notify-send -i /usr/share/icons/papirus/24x24/categories/office-calendar.png "$a"

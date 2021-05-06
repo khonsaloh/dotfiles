@@ -1,0 +1,35 @@
+[Default Applications]
+image/jpeg=sxiv.desktop;
+image/png=sxiv.desktop;
+image/bmp=sxiv.desktop;
+audio/mpeg=mpv.desktop;
+audio/x-mpegurl=mocp.desktop;
+audio/ogg=mpv.desktop;
+audio/flac=mpv.desktop;
+application/x-shellscript=vim.desktop;
+application/x-iwork-keynote-sffkey=vim.desktop;
+text/plain=vim.desktop;
+image/x-xpixmap=sxiv.desktop;
+video/x-msvideo=Mpv.desktop;
+application/pdf=xorg.gnome.Evince.desktop;
+application/vnd.openxmlformats-officedocument.wordprocessingml.document=libreoffice-writer.desktop;
+application/msword=libreoffice-writer.desktop;
+application/vnd.ms-excel=libreoffice-calc.desktop;
+application/vnd.ms-powerpoint=libreoffice-impress.desktop;
+application/vnd.oasis.opendocument.presentation=libreoffice-impress.desktop;
+application/vnd.oasis.opendocument.spreadsheet=libreoffice-calc.desktop;
+application/vnd.oasis.opendocument.text=libreoffice-writer.desktop;
+application/vnd.openxmlformats-officedocument.presentationml.slideshow=libreoffice-impress.desktop;
+application/vnd.openxmlformats-officedocument.spreadsheetml.sheet=libreoffice-calc.desktop;
+text/html=firefox-esr.desktop
+x-scheme-handler/http=firefox.desktop
+x-scheme-handler/https=firefox.desktop
+x-scheme-handler/about=firefox.desktop
+x-scheme-handler/unknown=firefox.desktop
+inode/directory=;
+
+[Added Associations]
+inode/directory=;
+image/jpeg=sxiv.desktop;
+application/vnd.openxmlformats-officedocument.wordprocessingml.document=libreoffice-writer.desktop;
+text/x-sh=vim.desktop;

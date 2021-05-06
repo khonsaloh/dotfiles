@@ -1,0 +1,24 @@
+#!/bin/sh
+
+#device=$(pulsedevices | grep "pci-0000_0b" -A 2)
+vol=$(amixer sget Master | awk '/%/ {print $4}' | tr -d '[%]')
+mute=$(amixer sget Master | awk '/%/ {print $6}' | tr -d '[]')
+#mute=$(echo  | grep "Mute" | awk '{ print $2 }')
+#vol=$(echo "$device" | grep "front-left" | awk '{ print $5 }')
+volumo="$(echo "$vol")"
+if [ "$mute" = "off" ]; then
+	#echo "🔇 mute"
+	#echo "  mute"
+	echo " 🔇"
+elif [ "$volumo" -gt 70 ]; then
+	echo " 🔊 $vol%"
+	#echo " no $vol%"
+elif [ "$volumo" -gt 35 ]; then
+	#echo " 🔈 $vol"
+	echo "🔉 $vol%"
+else
+	echo "🔈 $vol%"
+fi
+#echo "$vol"
+#polybar-msg hook volumen 1 
+

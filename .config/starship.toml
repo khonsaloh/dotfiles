@@ -1,0 +1,50 @@
+# Don't print a new line at the start of the prompt
+add_newline = false
+
+# Replace the "❯" symbol in the prompt with "➜"
+[character]                            # The name of the module we are configuring is "character"
+success_symbol = "[:](bold green)"     # The "success_symbol" segment is being set to ":" with the color "bold green"
+
+# Disable the package module, hiding it from the prompt completely
+#[package]
+#disabled = true
+
+#format = """
+#$username\
+#$directory\
+#$git_branch\
+#$git_commit\
+#$git_state\
+#$git_status\
+#$cmd_duration\
+#$line_break\
+#$status"""
+#add_newline = false
+
+[line_break]
+disabled = true
+
+[python]
+disabled = true
+
+[package]
+disabled = true
+
+[ruby]
+disabled = true
+
+[rust]
+disabled = true
+
+[nodejs]
+disabled = true
+
+[java]
+disabled = true
+
+[golang]
+disabled = true
+
+[aws]
+disabled = true
+

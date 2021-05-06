@@ -1,0 +1,9 @@
+<JWM>
+<!--Program label="Date and Time" icon="/usr/share/icons/papirus-antix/48x48/apps/time.png">/usr/local/bin/set_time-and_date.sh</Program-->
+<!--Program label="IceWM Toolbar Icon Manager" icon="/usr/share/icons/papirus-antix/48x48/apps/icewm_editor.png">/usr/local/bin/icewm-toolbar-icon-manager.sh</Program-->
+<!--Program label="JWM Tray Icon Manager" icon="/usr/share/pixmaps/jwm_editor.png">/usr/local/bin/jwm-tray-icon-manager.sh</Program-->
+<!--Program label="Rápido Gestor de Menús Personales" icon="/usr/share/icons/papirus-antix/48x48/apps/icewm_peditor.png">/usr/local/bin/fast_personal_menu_editor.sh</Program-->
+<Program label="ROXTerm" icon="/usr/share/icons/papirus-antix/48x48/apps/roxterm.png">roxterm</Program>
+<Program label="urxvt" icon="/usr/share/icons/papirus-antix/48x48/apps/terminal.png">urxvt</Program>
+<Program label="yad-color" icon="/usr/share/icons/papirus-antix/48x48/apps/gcolor2.png">yad-color</Program>
+</JWM>

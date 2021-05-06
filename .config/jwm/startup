@@ -1,0 +1,13 @@
+<JWM>
+
+<!-- Applications used in conjunction with JWM -->
+<StartupCommand> 
+
+conky --config=/home/gon/.config/conky/perfilconkyice &
+#feh --no-fehbg --bg-scale '/usr/share/wallpaper/california.jpg' &
+xwallpaper --stretch '/usr/share/wallpaper/california.jpg' &
+#sxhkd & 
+
+</StartupCommand>
+</JWM>
+

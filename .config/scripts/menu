@@ -1,0 +1,23 @@
+#!/bin/sh
+
+cat <<EOF | xmenu | sh &
+Aplicaciones
+	      IMG:./icons/web.png	Navegador $BROWSER
+	      IMG:./icons		      Particiones	    st -e sudo cfdisk
+	      IMG:./icons		      Quemador disco	st -e cdw
+	      IMG:./icons		      Recuperacion forense	  st -e sudo testdisk
+	      IMG:./icons		      Hoja de calculo	st -e sc
+	      IMG:./icons		      Temas y apariencia	    lxappearance
+Color			color
+Montar/Desmontar	$HOME/.config/barblocks/montaje2
+lf			. $HOME/.zshrc &&  st -e lf
+Procesador Textos	libreoffice
+Cambiar Tema Polybar    (find $HOME/.config/polybar/con* -type f | dmenu -i -l 5 >$HOME/.local/polybar.txt && $HOME/.config/polybar/launch.sh)
+
+Cerrar session		  kill -9 -1
+Apagar			        sudo poweroff
+Apagado programado	$HOME/.config/barblocks/temporizador
+Reiniciar		        sudo reboot
+EOF
+
+

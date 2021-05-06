@@ -1,0 +1,8 @@
+#!/bin/sh
+
+while ! pgrep pcmanfm >/dev/null; do
+        sleep 1
+done
+sleep 1
+bspc desktop -f 1 && exit 1
+

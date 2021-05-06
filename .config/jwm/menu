@@ -1,0 +1,27 @@
+<JWM>
+    <Program label="Terminal" icon="/usr/share/icons/papirus-antix/48x48/apps/terminal.png">urxvt</Program>
+    <!--Program label="Archivos" icon="/usr/share/icons/papirus-antix/48x48/apps/file-manager.png">desktop-defaults-run -fm</Program-->
+    <!--Separator/-->
+    <Program label="Buscador Web" icon="/usr/share/icons/papirus-antix/48x48/apps/web-browser.png">desktop-defaults-run -b</Program>
+    <!--Program label="Editor" icon="/usr/share/icons/papirus-antix/48x48/apps/text-editor.png">desktop-defaults-run -te</Program-->
+    <Separator/>
+    <Menu label="Personal" icon="/usr/share/icons/papirus-antix/48x48/apps/preferences-desktop-user.png">
+        <Include>$HOME/.config/.jwm/personal</Include>
+    </Menu>
+    <Menu label="Aplicaciones" icon="/usr/share/icons/papirus-antix/48x48/apps/applications.png">
+        <Include>$HOME/.config/.jwm/menu-applications</Include>
+    </Menu>
+    <!--Program label="Actualizar menú" icon="/usr/share/icons/papirus-antix/48x48/apps/update-manager.png">desktop-menu --write-out-global</Program-->
+    <Separator/>
+    <Menu label="Escritorio" icon="/usr/share/icons/papirus-antix/48x48/apps/user-desktop.png">
+        <Menu label="Alternar Escritorios" icon="/usr/share/icons/papirus-antix/48x48/apps/user-desktop.png">
+            <Include>/usr/share/desktop-session/wm-menus/jwm-wm-menu</Include>
+        </Menu>
+        <!--Program label="RoxPanel on/off" icon="/usr/share/icons/papirus-antix/48x48/apps/gnome-panel.png">paneltoggle.sh</Program-->
+        <!--Program label="Conky on/off" icon="/usr/share/icons/papirus-antix/48x48/apps/utilities-system-monitor.png">conkytoggle.sh</Program-->
+    </Menu>
+        <Program label="Cancelar Apps" icon="/usr/share/icons/papirus-antix/48x48/apps/appkill.png">xkill</Program>
+    <Program label="Centro de Control" icon="/usr/share/icons/papirus-antix/48x48/apps/control-center2.png">antixcc.sh</Program>
+    <Separator/>
+    <Include>$HOME/.config/.jwm/themes-list</Include>
+</JWM>

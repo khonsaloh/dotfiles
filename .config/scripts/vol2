@@ -1,0 +1,15 @@
+#!/bin/sh
+
+XOBD="$(pidof xob)"
+
+#[ -f "/tmp/vol_alsa" ] || mkfifo /tmp/vol_alsa
+[ -p "/tmp/vol_alsa" ] || mkfifo /tmp/vol_alsa
+#[[ -f "/tmp/vol_alsa" ]] || mkfifo $USER_TMP_DIR/XOBBKL
+#case $1 in
+#	"up") amixer sset Master 5%+;;
+#	"down") amixer sset Master 5%-;;
+#esac
+[ -z $XOBD ] && {
+	tail -f /tmp/vol_alsa | xob -s vol -t 1000 &>/dev/null &
+	#tail -f $USER_TMP_DIR/XOBBKL | xob -s backlight -t 2000 &>/dev/null &
+}

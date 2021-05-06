@@ -1,0 +1,5 @@
+#!/bin/sh
+
+curl -sf wttr.in | less -SR
+read
+echo eso

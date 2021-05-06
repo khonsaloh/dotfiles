@@ -1,0 +1,10 @@
+#!/bin/bash
+
+a="$(xrandr --verbose | awk '/Brightness/ {print $2}')"
+
+case $1 in
+        arriba) xrandr --output LVDS --brightness $(echo $a + 0.02| bc);;
+	      abajo) xrandr --output LVDS --brightness $(echo $a - 0.02 | bc);;
+esac
+
+b=$(bc -l <<< $(xrandr --verbose | awk '/Brightness/ { print $2 }')*100) && echo $b | cut -c1,2 >/tmp/brillo

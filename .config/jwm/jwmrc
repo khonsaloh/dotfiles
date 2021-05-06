@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+
+<JWM>
+
+<!-- Initialize the applications used in conjunction with JWM -->
+	<Include>$HOME/.config/jwm/startup</Include>
+
+<!-- The root menu, if this is undefined you will not get a menu. -->
+<!-- Additional RootMenu attributes: onroot, labeled, label -->
+<RootMenu height="20">
+
+   <!-- The backbone antiX menu -->
+	<Include>$HOME/.config/jwm/menu</Include>
+
+   <Separator/>
+   <Menu label="Cerrar sesión" icon="/usr/share/icons/papirus-antix/48x48/actions/application-exit.png">
+     <Restart label="Reiniciar JWM" icon="/usr/share/icons/papirus-antix/48x48/actions/view-refresh.png"/>
+     <Program label="Cerrar sesión" icon="/usr/share/icons/papirus-antix/48x48/actions/application-exit.png">desktop-session-exit</Program>
+   </Menu>
+</RootMenu>
+
+<Include>$HOME/.config/jwm/keys</Include>
+<Include>$HOME/.config/jwm/theme</Include>
+<Include>$HOME/.config/jwm/tray</Include>
+<Include>$HOME/.config/jwm/preferences</Include>
+
+</JWM>

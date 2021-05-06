@@ -1,0 +1,3 @@
+#!/bin/sh
+# module time for status bar
+date +%H:%M

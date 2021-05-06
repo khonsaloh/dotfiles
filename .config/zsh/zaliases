@@ -1,0 +1,89 @@
+
+#PS1="$rojo[$purple\u$nc:$green\w$rojo]$nc$ "
+
+export LESSHISTFILE="-"
+
+alias mpv='tragar mpv'
+alias mount='clear && mount | column -t'
+alias diff='clear && colordiff'
+alias contraseña="openssl rand -base64 20"
+alias grupos='clear && column /etc/group -t -s ":" | less -R | column'
+alias usuarios='clear && column /etc/passwd -t -s ":"'
+alias ping='clear && grc ping -2 google.com -c 3'
+alias free='clear && grc free -h'
+alias du='grc du -h'
+#alias enlaces='ls -la | grep "\->"'
+alias gs='exa --git -l'
+alias aplicacionesXdefecto='cd /etc/alternatives/ && ls -la'
+alias calculadora='bc -q'
+alias cal='ncal -b -3'
+alias g='lazygit'
+alias tree='tree -C'
+alias md='bat ~/doc/doc/plantilla.md'
+alias i='tragar sxiv -t .'
+alias lsblk='grc lsblk'
+alias bak="cd $HOME/scripts/bak"
+alias config="/usr/bin/git --git-dir=$HOME/scripts/dotfiles --work-tree=$HOME"
+alias wg='urxvt -e wordgrinder'
+alias e="cd /etc "
+alias ..="cd .. "
+alias b="cd /usr/bin"
+alias cfg="cd  ~/.config/ "
+alias s="cd $HOME/scripts/ "
+alias wal=~/scripts/replace
+alias log="cd /var/log"
+alias ipp="curl icanhazip.com || curl ifconfig.me"
+alias d="cd ~/descargas/"
+alias dev="cd /dev"
+alias ffprobe="ffprobe -hide_banner"
+alias dependencias='ldd'
+alias s2='cd /usr/local/bin'
+alias cm='cd /usr/share'
+alias q='exit'
+alias l='clear && lsd -Ah --group-dirs first'
+alias ll='lsd -lAh --group-dirs first'
+alias ls='clear && lsd -h --group-dirs first'
+alias t='ncdu --color dark'
+#alias bq='sudo find | fzf -i'
+alias tv='tmux split-window -h'
+alias th='tmux split-window -v'
+alias tm='if tmux has; then tmux attach; else tmux new; fi'
+alias usb='cd /media/usb/'
+alias rm='rm -r -i '
+#alias cp='cd -r'
+alias mm='cd ~/mm'
+alias env='grc env'
+alias df='clear && grc lsblk && echo && grc df -h'
+alias ka='killall'
+alias h='htop'
+#alias f='ehlo=$(find -type d -not -path "./.cache*" -not -path "./.mozilla*" -not -path "./.thumbnails*" | fzf --cycle) && cd $ehlo'
+alias lt='clear && lsd -lAtr'
+
+function cd () {
+	      new_directory="$*";
+	      if [ $# -eq 0 ]; then
+		            new_directory=${HOME};
+	      fi;
+	      clear && builtin cd "${new_directory}" && lsd -Ah --group-dirs first
+}
+
+# see /usr/share/doc/bash/examples/startup-files (in the package bash-doc)
+# for examples
+
+#trasteando
+export LESS_TERMCAP_mb=$'\e[1;32m'
+export LESS_TERMCAP_md=$'\e[1;32m'
+export LESS_TERMCAP_me=$'\e[0m'
+export LESS_TERMCAP_se=$'\e[0m'
+export LESS_TERMCAP_so=$'\e[01;33m'
+export LESS_TERMCAP_ue=$'\e[0m'
+export LESS_TERMCAP_us=$'\e[1;4;31m'
+
+
+#colocado por mi
+export HISTCONTROL='ignoredups'
+export HISTIGNORE='history:im:g:t:h:ping:navegador:c:df:m:ll:s:s2:d:mm:e:l:cfg:q:vbu:br:vb:b:cd:r:ls:n:'
+
+#eval $(thefuck)
+#alias f='thefuck'
+#shopt -s autocd 

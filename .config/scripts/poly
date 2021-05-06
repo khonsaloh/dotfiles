@@ -1,0 +1,13 @@
+#!/bin/sh
+
+a=$(pidof polybar)
+
+if [ -z "$a" ]; then
+	      bspc wm -r
+else
+	      killall polybar
+fi
+
+	                         
+
+

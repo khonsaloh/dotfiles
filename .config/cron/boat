@@ -1,0 +1,3 @@
+#!/bin/sh
+
+newsboat -x reload && notify-send -i /usr/share/icons/papirus/24x24/categories/liferea.png "rss actualizado"

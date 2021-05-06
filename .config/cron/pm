@@ -1,0 +1,26 @@
+# Edit this file to introduce tasks to be run by cron.
+
+
+
+# ┌───────────── minute (0 - 59)
+# │ ┌───────────── hour (0 - 23)
+# │ │ ┌───────────── day of month (1 - 31)
+# │ │ │ ┌───────────── month (1 - 12)
+# │ │ │ │ ┌───────────── day of week (0 - 6) (Sunday to Saturday;
+# │ │ │ │ │                                       7 is also Sunday on some systems)
+# │ │ │ │ │
+# │ │ │ │ │
+# * * * * *  command_to_execute
+
+
+
+###### Sample crontab ######
+
+#0 */6 * * * /usr/bin/newsboat -x reload && notify-send "`echo actualizando newsboat`"
+
+DISPLAY=:0.0
+#XAUTHORITY=/home/matrix/.Xauthority
+#@reboot command
+0 */6 * * * $HOME/scripts/cron/boat
+0 */4 * * * $HOME/scripts/cron/correo
+@reboot $HOME/scripts/cron/cal

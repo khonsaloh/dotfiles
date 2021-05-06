@@ -1,0 +1,18 @@
+#!/bin/sh
+
+vol=$(amixer sget Master | awk '/%/ {print $4}' | tr -d '[%]')
+mute=$(amixer sget Master | awk '/%/ {print $6}' | tr -d '[]')
+
+volumo=$(echo "$vol")
+
+if [ "$mute" = "off" ]; then
+        echo "  mute"
+elif [ "$volumo" -gt 70 ]; then
+        echo "  $vol%"
+elif [ "$volumo" -gt 35 ]; then
+        echo "  $vol%"
+else
+        echo "  $vol%"
+fi
+#echo "$vol"
+#polybar-msg hook volumen 1

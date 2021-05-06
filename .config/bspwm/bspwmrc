@@ -1,0 +1,81 @@
+#! /bin/sh
+
+#pkill sxhkd 
+pidof sxhkd || sxhkd &
+
+compton --config  ~/.config/compton/compton.conf &
+
+# cambiado a xwallpaper
+#feh --no-fehbg --bg-scale /usr/share/wallpaper/paraje.jpg &
+#xwallpaper --stretch /usr/share/wallpaper/foresta.jpg &
+xwallpaper --stretch $(cat $HOME/.local/fondo.txt) &
+
+# la linea siguiente es para xdotool 
+setxkbmap es
+$HOME/.config/scripts/fifo &
+xbanish &
+#xmodmap -e "keycode 66 = Shift_L" &
+xmodmap -e "remove Lock = Caps_Lock" -e "keycode 66 = Escape" &
+pidof redshift || redshift & #-l 45.7:4.7  -t 5700:3600 -g 0.8 -m randr &
+#setxkbmap -option caps:none
+pidof polybar || $HOME/.config/polybar/launch.sh &
+dunst &
+xsetroot -cursor_name left_ptr &
+#( sleep 2s && bash /usr/local/bin/lemonbar.sh | lemonbar -p -F#FFFFFFFF -B#FF222222 -f "mononoki Nerd Font"-8 -f FontAwesome-8) &
+#panel $
+#cambiado numero de escritorios 
+#bspc monitor -d I II III IV V VI VII VIII IX X
+#bspc monitor -d IV V VI VII 
+bspc monitor -d 1 2 3 4 5 6 7 8 9
+
+pidof pcmanfm || pcmanfm &
+bspc config pointer_modifier mod4
+
+bspc config pointer_action1 none
+#bspc config pointer_modifier
+
+bspc config border_width         2
+bspc config window_gap          5
+
+#bspc config automatic_scheme alternate
+#bspc config automatic_scheme longest_side
+#bspc config automatic_scheme spiral
+#
+#ditribucion stack en fibonacci
+bspc config automatic_scheme      spiral
+
+bspc config initial_polarity first_child
+
+bspc config split_ratio          0.50
+bspc config borderless_monocle   true
+bspc config gapless_monocle      true
+bspc config paddingless_monocle  true
+bspc config single_monacle       true
+
+bspc config focus_follows_pointer true
+
+#bspc rule -a Gimp desktop='^8' state=floating follow=on
+#bspc rule -a firefox-esr desktop='^2'
+#añadido
+#bspc rule -a mpv desktop='^4' state=fullscreen follow=on
+bspc rule -a mpv state=floating follow=on
+#bspc rule -a Zathura desktop='^4' state=fullscreen follow=on
+bspc rule -a Firefox-esr desktop='^4' follow=on
+bspc rule -a Links desktop='^4' follow=on
+bspc rule -a Sxiv state=floating follow=on
+#bspc rule -a wordgrinder state=floating follow=on
+#bspc rule -a soffice desktop='^4' follow=on
+#bspc rule -a Libreoffice state=floating
+#bspc rule -a '*:libreoffice' state=floating desktop='^3' follow=on
+#bspc rule -a '*:soffice' state=floating rectangle=480x270+1440+810
+#bspc rule -a URxvt:urxvt:'ranger' state=floating
+bspc rule -a 'Yad' state=floating rectangle=600x600+400+100 focus=on
+bspc rule -a 'Lxappearance' state=floating
+$HOME/.config/scripts/pcm &
+#bspc rule -a URxvt::wordgrinder state=floating center=on
+#bspc rule -a URxvt::ranger state=floating center=on
+#bscp rule -a polybar manage=off
+#bspc rule -a Screenkey manage=off
+#bspc rule -a guvcview state=floating rectangle=480x270+1440+810 sticky=on layer=above
+
+#( sleep 2s && bash /usr/local/bin/lemonbar.sh | lemonbar -p -F#FFFFFFFF -B#FF222222 -f "mononoki Nerd Font"-8 -f FontAwesome-8) &
