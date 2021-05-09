@@ -1,20 +1,19 @@
-
+# Note: delete the line above to disable automatic scaling with DPI
+# on the live system.
 # set to yes if you want Conky to be forked in the background
 background yes
-
 short_units yes
-
 cpu_avg_samples 2
 net_avg_samples 2
-
 out_to_console no
 
-font 8x12
-
+# X font when Xft is disabled, you can pick one with program xfontsel
+ font 8x12
 
 # Use Xft?
 use_xft yes
 
+# Xft font when Xft is enabled
 xftfont DejaVu Sans:bold:size=9
 
 # Create own window instead of using desktop (required in nautilus, pcmanfm and rox desktops)
@@ -53,6 +52,9 @@ draw_borders no
 # Stippled borders?
 stippled_borders 0
 
+# border margins
+#border_margin 10
+
 # border width
 border_width 2
 
@@ -68,11 +70,9 @@ color8 77ccff
 color9 5599cc
 
 # Text alignment, other possible values are commented
-
 alignment top_right
 
 # Gap between borders of screen and text
-
 gap_x 20
 gap_y 40
 
@@ -88,29 +88,45 @@ if_up_strictness address
 # set to yes if you want all text to be in uppercase
 uppercase no
 
-
 TEXT
-
 ${color8}$alignc${font DejaVu Sans:size=12}${time %I:%M}   $font
 ${color}${alignc}${time %a %d %b}
-
+#${color}${alignc}Uptime: $uptime
 ${color}${alignc}${exec disp=${DISPLAY#:}; disp=${disp%.[0-9]}; cat $HOME/.desktop-session/desktop-code.$disp 2>/dev/null}
-
+#${color}${alignc}cascara:${alignr}${color3}${exec echo $0}
 ${color}res:${alignr}${color3}${execi 60 xdpyinfo | sed -n -r "s/^\s*dimensions:.*\s([0-9]+x[0-9]+).*/\1/p"}
 ${color}dpi:${alignr}${color3}${execi 60 sed -nr "s/^\s*Xft.dpi:\s*([0-9]+(x[0-9]+)?).*/\1/p" $HOME/.Xresources | grep "[0-9]" || echo 96}
-
+#${color}Automount: ${alignr}${color3}${execi 60 grep -q "^automount=TRUE" $HOME/.desktop-session/automount.conf 2>/dev/null && echo "enabled" || echo "disabled"}
+#${color}Heat:${alignr}${color3}cpu_temp=$(< /sys/class/thermal/thermal_zone0/temp); cpu_temp=$(($cpu_temp/1000));echo $cpu_tempºC
+#mustra frecuencia de uso de procesador
+#${color}Freq:${color3}${alignr}${freq}
+#${color}$alignr${cpugraph cpu0 30,170 5599cc 5599cc}
 ${color}Disk:${alignr}${color3}${diskio}
 #grafico del uso de disco
 ${color}${alignr}${diskiograph 30,170 5599cc 5599cc}${if_up eth0}
-
+#${color}eth0 up: $alignr${color3} ${upspeed eth0}
+#${color}$alignr${upspeedgraph   eth0 30,170 5599cc 5599cc}
+#${color}eth0 down: $alignr${color3} ${downspeed eth0}
+#${color2}$alignr${downspeedgraph eth0 30,170  5599cc 5599cc}${endif}${if_up eth1}
+#${color}eth1 up: $alignr${color3} ${upspeed eth1}
+#${color}$alignr${upspeedgraph   eth1 30,170 5599cc 5599cc}
+#${color}eth1 down: $alignr${color3} ${downspeed eth1}
+#${color2}$alignr${downspeedgraph eth1 30,170  5599cc 5599cc}${endif}${if_up wlan0}
+#${color}wlan0 up: $alignr${color3} ${upspeed wlan0}
+#${color2}$alignr${upspeedgraph   wlan0 30,170 5599cc 5599cc}
+#${color}wlan0 down: $alignr${color3} ${downspeed wlan0}
+#${color2}$alignr${downspeedgraph wlan0 30,170 5599cc 5599cc}${endif}${if_up wlan1}
+#${color}wlan1 up: $alignr${color3} ${upspeed wlan1}
+#${color2}$alignr${upspeedgraph   wlan1 30,170 5599cc 5599cc}
+#${color}wlan1 down: $alignr${color3} ${downspeed wlan1}
+#${color2}$alignr${downspeedgraph wlan1 30,170 5599cc 5599cc}${endif}
 ${color}${alignr}${color8}Used / Total
 ${color}CPU:${alignr}${color3}${cpu}${color}%
 ${color}RAM:${alignr}$mem ${color3} /${color} $memmax
-
+#mostrar uso de particion swap
+#${color}Swap:${alignr}$swap ${color3} /${color} $swapmax
 ${color}/ Disk:${alignr}${fs_used /} ${color3} /${color} ${fs_size /}
 ${color3}${alignc}${execi 1000 persist-enabled}
 ${execi 1000 acpi 2>/dev/null | grep -q . && echo "Batt: "}${execi 10 acpi -b 2>/dev/null | cut -d" " -f3,4 | sed 's/,$//'}
-
-
-
-
+#${execp TODAY=`date +%_d`; cal -h | tail -n+2 | sed \
+#${color}espacio${alignr}${exec df -h | grep "/dev/sda2" | awk '{ print $ 5 }}'
